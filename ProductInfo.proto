@@ -1,0 +1,19 @@
+syntax = "proto3";
+package api;
+
+option go_package ="/api";
+
+message Product {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message ProductId{
+    string value = 1;
+}
+
+service ProductInfo {
+    rpc addProduct(Product) returns (ProductId);
+    rpc getProduct(ProductId) returns (Product);
+}
